@@ -41,7 +41,7 @@ public class admin extends Base {
 	public void setAdminName() {
 		try {
 			adminName.clear();
-			adminName.sendKeys("admin");
+			adminName.sendKeys("admin1");
 			//Reporter.log("Admin name entered | ");
 		} catch (Exception e) {
 			e.printStackTrace();
