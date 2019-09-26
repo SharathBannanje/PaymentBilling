@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
-<%@ page import="java.sql.*" %>
+<%@ include file = "dbconn.jsp" %>
 
 <%
 String n=request.getParameter("val");
@@ -7,11 +7,6 @@ if(n.length()>0){
 try{
 //Class.forName("oracle.jdbc.driver.OracleDriver");
 //Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
-
-Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-String dbURL = "jdbc:sqlserver://localhost\\sqlexpress;user=PayBillUser;password=Pass123";
-Connection con = DriverManager.getConnection(dbURL);
-
 
 PreparedStatement ps=con.prepareStatement("select * from PaymentBillingDb.dbo.student2 where id ='"+n+"'");
 

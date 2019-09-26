@@ -1,0 +1,14 @@
+# ***https://github.com/twright-msft/mssql-node-docker-demo-app
+# ***https://stackoverflow.com/questions/46453969/cannot-log-into-sql-server-in-mssql-server-linux-container
+FROM microsoft/mssql-server-linux:latest
+
+# Create app directory
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+COPY . /usr/src/app
+
+# Grant permissions for the import-data script to be executable
+RUN chmod +x /usr/src/app/entrypoint.sh
+
+CMD /bin/bash ./entrypoint.sh

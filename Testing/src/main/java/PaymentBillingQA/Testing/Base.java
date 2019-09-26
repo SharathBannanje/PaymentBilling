@@ -23,6 +23,7 @@ public class Base {
 
 		// To open URL
 		String url = "http://localhost:8081/PaymentBilling/";
+		//String url = "http://10.16.33.178:9090/PaymentBilling/";
 		driver.get(url);
 
 		return driver;

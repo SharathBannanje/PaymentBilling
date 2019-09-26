@@ -1,7 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
 <%--@page import="org.omg.CORBA.PUBLIC_MEMBER"--%>
-<%@page import="java.sql.*"%>
 <%@page import="java.util.*"%>
+<%@ include file = "dbconn.jsp" %>
 
 <%
 String username=request.getParameter("username");
@@ -12,10 +12,6 @@ boolean status=false;
 try{
 //Class.forName("oracle.jdbc.driver.OracleDriver");
 //Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
-
-Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-String dbURL = "jdbc:sqlserver://localhost\\sqlexpress;user=PayBillUser;password=Pass123";
-Connection con = DriverManager.getConnection(dbURL);
 
 PreparedStatement ps=con.prepareStatement("select * from PaymentBillingDb.dbo.payregister where username=? and userpass=? and branch=? ");
 ps.setString(1,username);

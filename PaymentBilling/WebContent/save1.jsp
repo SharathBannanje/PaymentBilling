@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
-<%@page import="java.sql.*"%>
+<%@ include file = "dbconn.jsp" %>
+
 <%-- <%@page import="org.apache.taglibs.standard.tag.common.fmt.SetBundleSupport"%>--%>
 <%try{
 System.out.print(request.getParameter("name"));
@@ -24,9 +25,6 @@ String trainer=request.getParameter("trainer");
 //Class.forName("oracle.jdbc.driver.OracleDriver");
 //Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
 
-Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-String dbURL = "jdbc:sqlserver://localhost\\sqlexpress;user=PayBillUser;password=Pass123";
-Connection con = DriverManager.getConnection(dbURL);
 PreparedStatement ps=con.prepareStatement("update PaymentBillingDb.dbo.student2 set name='"+name+"',course='"+course+"',mobile='"+mobile+"',address='"+address+"',trainer='"+trainer+"',description='"+description+"',dateofbirth='"+dateofbirth+"',dateofjoining='"+dateofjoining+"',qualification='"+qualification+"',feesub='"+feesub+"',fee='"+fee+"',paid='"+paid+"',balance='"+balance+"',fathername='"+fathername+"',mothername='"+mothername+"'  where id= '"+id+"'");
 
 int s=ps.executeUpdate();

@@ -1,6 +1,7 @@
 
 <%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
-<%@page import="java.sql.*"%>
+<%@ include file = "dbconn.jsp" %>
+
 <%
 try{
 String username=request.getParameter("username");
@@ -17,9 +18,6 @@ Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe"
 PreparedStatement ps=con.prepareStatement("insert into payregister(username,userpass,branch,dateofjoining,dateofbirth,salary) values(?,?,?,?,?,?)");
 */
 
-Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-String dbURL = "jdbc:sqlserver://localhost\\sqlexpress;user=PayBillUser;password=Pass123";
-Connection con = DriverManager.getConnection(dbURL);
 PreparedStatement ps=con.prepareStatement("insert into PaymentBillingDb.dbo.payregister(username,userpass,branch,dateofjoining,dateofbirth,salary) values(?,?,?,?,?,?)");
 
 //ps.setInt(1,2);
