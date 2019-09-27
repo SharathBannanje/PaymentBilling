@@ -30,7 +30,7 @@ public class Test_001_Login {
 		adminpage.setAdminName();
 		adminpage.setAdminPwd();
 		adminpage.clickSignIn();
-		driver.close();
+		//driver.close();
 		System.out.println("Test case run completed..!");
 	}
 	
