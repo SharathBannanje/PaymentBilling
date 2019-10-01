@@ -1,0 +1,1 @@
+/opt/mssql/bin/sqlservr & sleep 30 && /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P HappyNew@123 -d master -i setup.sql && wait

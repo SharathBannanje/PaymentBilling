@@ -1,5 +1,3 @@
-# ***https://github.com/twright-msft/mssql-node-docker-demo-app
-# ***https://stackoverflow.com/questions/46453969/cannot-log-into-sql-server-in-mssql-server-linux-container
 FROM microsoft/mssql-server-linux:latest
 
 # Create app directory

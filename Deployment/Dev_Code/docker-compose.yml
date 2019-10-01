@@ -1,0 +1,29 @@
+version: '3.0'
+services:
+
+  mssql:
+    build: dbapp
+    container_name: mymssql
+    ports:
+      - 1435:1433
+    volumes:
+      - /var/opt/mssql
+    environment:
+      ACCEPT_EULA: 'Y'
+      SA_PASSWORD: HappyNew@123
+    networks: 
+      - backend
+  tomcat:
+    build: tomcatapp
+    container_name: mytomcat
+    ports:
+      - "9090:8080"
+    depends_on:
+      - mssql
+    links:
+      - mssql
+    networks: 
+      - backend
+networks:
+  backend:
+    driver: "bridge"

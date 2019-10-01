@@ -32,7 +32,6 @@ public class Base {
 		Driver.manage().window().maximize();
 		Driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
-
 		// To open URL
 		//String url = "http://localhost:8081/PaymentBilling/";
 		
